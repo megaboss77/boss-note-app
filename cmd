@@ -6,3 +6,4 @@
 
 
 
+git remote add origin ssh://git@github.com/nattsut/boss-note-app.git
