@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 
+app.get('/',(req,res)=>{
+    //res.send('<h1>HELLO GUYS</h1>');
+    res.sendFile(__dirname+'/public/index.html');
+    //res.sendFile(path.join(__dirname,'public','index.html'));
+})
 //bodyparser middleware
 app.use(bodyParser.json());
 
