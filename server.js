@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
 const app = express();
+
 
 app.get('/',(req,res)=>{
     //res.send('<h1>HELLO GUYS</h1>');
-    res.sendFile(__dirname+'/public/index.html');
+    res.sendFile(__dirname+'/public/index2.html');
     //res.sendFile(path.join(__dirname,'public','index.html'));
 })
 //bodyparser middleware
@@ -22,6 +24,11 @@ mongoose.connect(db,{ useNewUrlParser: true,
 
 //use routes
 app.use('/api/items',require('./routes/api/items'));
+
+//resume
+// app.get('/resume', function(req, res){
+//     res.render('/resume.html');
+// });
 
 const port = process.env.PORT || 5000;
 

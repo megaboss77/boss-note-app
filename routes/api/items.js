@@ -11,6 +11,11 @@ router.get('/',(req,res)=>{
     .sort({date: -1})
     .then(items =>res.json(items))
 });
+router.get('/resume',(req,res)=>{
+    Item.find()
+    .sort({date: -1})
+    .then(items =>res.json(items))
+});
 
 router.post('/',(req,res)=>{
     const newItem = new Item({
