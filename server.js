@@ -5,6 +5,39 @@ const bodyParser = require('body-parser');
 const app = express();
 
 
+app.get('/sales-and-service/point-of-service',(req,res)=>{
+    var array = [
+        {
+          "address": {
+            "villageNumber": " ",
+            "postalCode": "10120",
+            "houseNumber": "1222",
+            "unitNumber": " ",
+            "villageName": " ",
+            "buildingName": " ",
+            "streetName": "Rama III Rd",
+            "province": "Bangkok",
+            "alleyName": " ",
+            "countryCode": "TH",
+            "district": "Yan Nawa",
+            "floorNumber": " ",
+            "subDistrict": "Bang Phong Phang"
+          },
+          "geoLocation": {
+            "latitude": "13°40'43.9\"N",
+            "longitude": "100°32'50.4\"E"
+          },
+          "contact": {
+            "phoneNumber": "+66-2-296-2000",
+            "faxNumber": "+66-2-296-2000"
+          },
+          "type": " "
+        }
+      ];
+    res.send(array);
+    //res.sendFile(__dirname+'/public/index2.html');
+    //res.sendFile(path.join(__dirname,'public','index.html'));
+})
 app.get('/',(req,res)=>{
     //res.send('<h1>HELLO GUYS</h1>');
     res.sendFile(__dirname+'/public/index2.html');
