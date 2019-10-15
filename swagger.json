@@ -1,0 +1,203 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is POC",
+      "version": "1.0",
+      "title": "RESTful API Demo",
+      "termsOfService": "http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open"
+    },
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Spec",
+        "description": "This just a demo APIs"
+      }
+    ],
+    "paths": {
+      "/sales-and-service/point-of-service": {
+        "get": {
+          "tags": [
+            "Spec"
+          ],
+          "summary": "ATM Location API",
+          "description": "Retrieve information on point of service of the bank",
+          "operationId": "GetPointOfService",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "description": "Type of point of service",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "province",
+              "in": "query",
+              "description": "Province location of point of service",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "district",
+              "in": "query",
+              "description": "District location of point of service",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "branchCode",
+              "in": "query",
+              "description": "Branch code of point of service",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/PointOfService"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "PointOfService": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": " ",
+            "description": "Type of point of service"
+          },
+          "address": {
+            "description": "Address information of point of service",
+            "$ref": "#/definitions/Address"
+          },
+          "geoLocation": {
+            "description": "Geolocation information of point of service",
+            "$ref": "#/definitions/GeoLocation"
+          },
+          "contact": {
+            "description": "Contact information of point of service",
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "description": "TODO"
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "houseNumber": {
+            "type": "string",
+            "example": "1222",
+            "description": "Identification of a location on street address"
+          },
+          "unitNumber": {
+            "type": "string",
+            "example": " ",
+            "description": "Identification of a suite or apartment"
+          },
+          "floorNumber": {
+            "type": "string",
+            "example": " ",
+            "description": "Floor or storey within a building"
+          },
+          "buildingName": {
+            "type": "string",
+            "example": " ",
+            "description": "Name of a building"
+          },
+          "villageName": {
+            "type": "string",
+            "example": " ",
+            "description": "Name of the village"
+          },
+          "villageNumber": {
+            "type": "string",
+            "example": " ",
+            "description": "Identification of a village"
+          },
+          "alleyName": {
+            "type": "string",
+            "example": " ",
+            "description": "Name of an alley branch out from the street"
+          },
+          "streetName": {
+            "type": "string",
+            "example": "Rama III Rd",
+            "description": "Name of a street or thoroughfare"
+          },
+          "subDistrict": {
+            "type": "string",
+            "example": "Bang Phong Phang",
+            "description": "Identification of a sub-division of a district"
+          },
+          "district": {
+            "type": "string",
+            "example": "Yan Nawa",
+            "description": "Name of a district, ie, a part of a town or region"
+          },
+          "province": {
+            "type": "string",
+            "example": "Bangkok",
+            "description": "A territory governed as an administrative or political unit of a country"
+          },
+          "countryCode": {
+            "type": "string",
+            "example": "TH",
+            "description": "Country of the address  (according to ISO 3166, Alpha-2)"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "10120",
+            "description": "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail"
+          }
+        },
+        "description": "TODO"
+      },
+      "GeoLocation": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "string",
+            "example": "13°40'43.9\"N",
+            "description": "Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator"
+          },
+          "longitude": {
+            "type": "string",
+            "example": "100°32'50.4\"E",
+            "description": "Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory. \nThe longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west"
+          }
+        },
+        "description": "TODO"
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "phoneNumber": {
+            "type": "string",
+            "example": "+66-2-296-2000",
+            "description": "Collection of information that identifies a phone number, as defined by telecom services. \nIt is recommended to use only numbers and limited punctuation +,-.(.)"
+          },
+          "faxNumber": {
+            "type": "string",
+            "example": "+66-2-296-2000",
+            "description": "Collection of information that identifies a fax number, as defined by telecom services. \nIt is recommended to use only numbers and limited punctuation +,-.(.)"
+          }
+        },
+        "description": "TODO"
+      }
+    }
+  }
