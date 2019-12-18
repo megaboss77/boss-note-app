@@ -7,7 +7,11 @@ const swaggerDocument = require('./swagger.json');
 const app = express();
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
+app.all('/login/data', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next()
+});
 
 app.get('/login/data',(req,res)=>{
     var array = [
