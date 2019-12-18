@@ -15,8 +15,8 @@ app.all('/login/data', function(req, res, next) {
 
 app.get('/login/data',(req,res)=>{
     var array = [
-      {id:"boss",pw:123},
-      {id:"nino",pw:456}
+      {id:"boss",pw:"123"},
+      {id:"nino",pw:"456"}
       ];
     res.send(array);
     //res.sendFile(__dirname+'/public/index2.html');
