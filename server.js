@@ -9,10 +9,10 @@ const app = express();
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
-app.get('/POC-login-test',(req,res)=>{
+app.get('/login/data',(req,res)=>{
     var array = [
-      {id:boss,pw:123},
-      {id:nino,pw:456}
+      {id:"boss",pw:123},
+      {id:"nino",pw:456}
       ];
     res.send(array);
     //res.sendFile(__dirname+'/public/index2.html');
