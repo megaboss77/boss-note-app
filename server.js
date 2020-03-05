@@ -33,7 +33,7 @@ app.get('/resume',(req,res)=>{
 app.get('/aof/:page',(req,res)=>{
   let page = req.params.page;
   //res.sendFile(__dirname+'/public/Page'+page+".html");
-  res.sendFile(__dirname+'/public/Page'+page+'.html');
+  res.sendFile(__dirname+'/public/aof/'+page);
   
 
   //res.sendFile(path.join(__dirname,'public','index.html'));
