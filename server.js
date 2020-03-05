@@ -6,6 +6,8 @@ const swaggerDocument = require('./swagger.json');
 
 const app = express();
 
+
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.all('/login/data', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -22,11 +24,21 @@ app.get('/login/data',(req,res)=>{
     //res.sendFile(__dirname+'/public/index2.html');
     //res.sendFile(path.join(__dirname,'public','index.html'));
 })
-app.get('/',(req,res)=>{
+app.get('/resume',(req,res)=>{
     //res.send('<h1>HELLO GUYS</h1>');
     res.sendFile(__dirname+'/public/index2.html');
     //res.sendFile(path.join(__dirname,'public','index.html'));
 })
+
+app.get('/aof/:page',(req,res)=>{
+  let page = req.params.page;
+  //res.sendFile(__dirname+'/public/Page'+page+".html");
+  res.sendFile(__dirname+'/public/Page'+page+'.html');
+  
+
+  //res.sendFile(path.join(__dirname,'public','index.html'));
+})
+
 //bodyparser middleware
 app.use(bodyParser.json());
 
